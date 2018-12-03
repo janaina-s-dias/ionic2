@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>Localização</ion-title>
+    </ion-navbar>
+ </ion-header>
+ <ion-content>
+    <div id="floating-panel">
+      <!-- <b>Origem: </b>
+      <select [(ngModel)]="start" id="start" (change)="calculateAndDisplayRoute()">
+        <option value="2H2P+JC Praia Grande, SP">Tude Bastos</option>
+        <option value="XGC3+9J Praia Grande, SP">Tático</option> 
+      </select><br> -->
+      <b>Loclização Atual: </b>
+      <select [(ngModel)]="start" id="start" (change)="calculateAndDisplayRoute()">
+        <option value="XGVF+3X Praia Grande, SP">Casa</option>
+        <option value="2MR9+8G Santos, SP">Trabalho</option>
+        <option value="XHVQ+W4 Praia Grande, SP">Faculdade</option>
+      </select><br>
+      <b>Destino: </b>
+      <select [(ngModel)]="end" id="end" (change)="calculateAndDisplayRoute()">
+        <option value="2H2P+JC Praia Grande, SP">Tude Bastos</option>
+        <option value="XGC3+9J Praia Grande, SP">Tático</option>
+      </select><br>
+    </div>
+  <div #map id="map"></div>
+ </ion-content> 
