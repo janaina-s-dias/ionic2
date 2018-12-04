@@ -2,7 +2,6 @@ import { AdressProvider } from './../../providers/adress/adress';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TabsPage } from '../../pages/tabs/tabs';
 import { Observable } from 'rxjs/Observable';
 
 @IonicPage()
