@@ -10,10 +10,16 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { MyApp } from './app.component';
 import { AdressProvider } from '../providers/adress/adress';
+import { HomePage } from '../pages/home/home';
+import { AdressHomePage } from '../pages/adress-home/adress-home';
+import { TabsPage } from '../pages/tabs/tabs';
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    HomePage,
+    AdressHomePage,
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,10 @@ import { AdressProvider } from '../providers/adress/adress';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
+    HomePage,
+    AdressHomePage,
+    TabsPage
   ],
   providers: [
     StatusBar,
