@@ -19,47 +19,57 @@ constructor
     public navCtrl: NavController, public navParams: NavParams,
     public formBuilder: FormBuilder, private provider: AdressProvider,
     private toast: ToastController
-) {
+) 
+
+{
+
 // maneira 1
-this.adress = this.navParams.data.adress || { };
-this.createForm();
+// this.adress = this.navParams.data.adress || { };
+// this.createForm();
+
 // // maneira 2
-// this.contact = { };
-// this.createForm();
-// if (this.navParams.data.key) {
-// const subscribe = this.provider.get(this.navParams.data.key).subscribe((c: any) => {
-// subscribe.unsubscribe();
-// this.contact = c;
-// this.createForm();
-// })
-// }
-  this.setupPageTitle();
+this.adress = { };
+this.createForm();
+
+  if (this.navParams.data.key) {
+        const subscribe = this.provider.get(this.navParams.data.key).subscribe((c: any) => {
+          subscribe.unsubscribe();
+        this.adress = c;
+        this.createForm();
+    })
+ }
+
   this.adresses = this.provider.getAll();
+  this.setupPageTitle();
+
 }
-private setupPageTitle() {
-  this.title = this.navParams.data.adress ? 'Update adress' : 'New adress';
+public setupPageTitle() {
+  console.log(this.adresses);
+  this.title = this.navParams.data.adresses ?  'Update adress' : 'New adress';
 }
+
+
 
 createForm() {
   this.form = this.formBuilder.group({
   key: [this.adress.key],
   name: [this.adress.name, Validators.required],
   location: [this.adress.location, Validators.required]
+});
+}
 
-  });
-  }
-  onSubmit() {
-    if (this.form.valid) {
-      this.provider.save(this.form.value)
-      .then(() => {
-      this.toast.create({ message: 'Adress salvo com sucesso.', duration: 3000 }).present();
-      this.navCtrl.pop();
 
-  })
-      .catch((e) => {
-      this.toast.create({ message: 'Erro ao salvar o adress.', duration: 3000 }).present();
-      console.error(e);
-      })
-    }
-    }
+onSubmit() {
+  if (this.form.valid) {
+    this.provider.save(this.form.value)
+    .then(() => {
+    this.toast.create({ message: 'Adress salvo com sucesso.', duration: 1000 }).present();
+    this.navCtrl.pop();
+ })
+    .catch((e) => {
+    this.toast.create({ message: 'Erro ao salvar o adress.', duration: 1000 }).present();
+    console.error(e);
+    })
   }
+  }
+}
