@@ -8,13 +8,15 @@ selector: 'page-adress-edit',
 templateUrl: 'adress-edit.html',
 })
 export class AdressEditPage {
-title: string;
-form: FormGroup;
-adress: any;
-constructor(
-public navCtrl: NavController, public navParams: NavParams,
-private formBuilder: FormBuilder, private provider: AdressProvider,
-private toast: ToastController) {
+  title: string;
+  form: FormGroup;
+  adress: any;
+constructor
+(
+    public navCtrl: NavController, public navParams: NavParams,
+    public formBuilder: FormBuilder, private provider: AdressProvider,
+    private toast: ToastController
+) {
 // maneira 1
 this.adress = this.navParams.data.adress || { };
 this.createForm();
@@ -28,10 +30,10 @@ this.createForm();
 // this.createForm();
 // })
 // }
-this.setupPageTitle();
+  this.setupPageTitle();
 }
 private setupPageTitle() {
-this.title = this.navParams.data.adress ? 'Alterando contato' : 'Novo contato';
+  this.title = this.navParams.data.adress ? 'Update adress' : 'New adress';
 }
 
 createForm() {
@@ -43,16 +45,16 @@ createForm() {
   });
   }
   onSubmit() {
-  if (this.form.valid) {
-  this.provider.save(this.form.value)
-  .then(() => {
-  this.toast.create({ message: 'Adress salvo com sucesso.', duration: 3000 }).present();
-  this.navCtrl.pop();
+    if (this.form.valid) {
+      this.provider.save(this.form.value)
+      .then(() => {
+      this.toast.create({ message: 'Adress salvo com sucesso.', duration: 3000 }).present();
+      this.navCtrl.pop();
   })
-  .catch((e) => {
-  this.toast.create({ message: 'Erro ao salvar o adress.', duration: 3000 }).present();
-  console.error(e);
-  })
-  }
-  }
+      .catch((e) => {
+      this.toast.create({ message: 'Erro ao salvar o adress.', duration: 3000 }).present();
+      console.error(e);
+      })
+    }
+    }
   }

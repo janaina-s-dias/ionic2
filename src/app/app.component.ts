@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AdressHomePage } from '../pages/adress-home/adress-home';
 
 
 @Component({
@@ -9,6 +10,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 })
 export class MyApp {
   rootPage:string = "HomePage";
+  //rootPage:any = "AdressHomePage";
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

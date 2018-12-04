@@ -22,9 +22,9 @@ export class AdressHomePage {
     this.adresses = this.provider.getAll();
   }
 
-  newAdress(){
-    this.navCtrl.push('AdressEditPage');
-  }
+  // newAdress(){
+  //   this.navCtrl.push('AdressEditPage');
+  // }
 
   editAdress(adress: any){
     this.navCtrl.push('AdressEditPage', {key: adress.key});
