@@ -11,8 +11,7 @@
           </select><br>
       <b>Destino: </b>
       <select [(ngModel)]="end" id="end" (change)="calculateAndDisplayRoute()">
-        <option value="2H2P+JC Praia Grande, SP">Tude Bastos</option>
-        <option value="XGC3+9J Praia Grande, SP">Tático</option>
+        <option *ngFor="let adress of adresses | async" value="{{ adress.location }}">{{ adress.name }}</option>
       </select><br>
           <button ion-button small block (click)="newAdress()">
             <ion-icon name="add"></ion-icon>

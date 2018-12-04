@@ -2,12 +2,16 @@ import { AdressProvider } from './../../providers/adress/adress';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TabsPage } from '../../pages/tabs/tabs';
+import { Observable } from 'rxjs/Observable';
+
 @IonicPage()
 @Component({
 selector: 'page-adress-edit',
 templateUrl: 'adress-edit.html',
 })
 export class AdressEditPage {
+  adresses: Observable<any>;
   title: string;
   form: FormGroup;
   adress: any;
@@ -31,6 +35,7 @@ this.createForm();
 // })
 // }
   this.setupPageTitle();
+  this.adresses = this.provider.getAll();
 }
 private setupPageTitle() {
   this.title = this.navParams.data.adress ? 'Update adress' : 'New adress';
@@ -50,6 +55,7 @@ createForm() {
       .then(() => {
       this.toast.create({ message: 'Adress salvo com sucesso.', duration: 3000 }).present();
       this.navCtrl.pop();
+
   })
       .catch((e) => {
       this.toast.create({ message: 'Erro ao salvar o adress.', duration: 3000 }).present();
