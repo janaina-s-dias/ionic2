@@ -38,9 +38,9 @@ initMap() {
 
 calculateAndDisplayRoute() {
   this.directionsService.route({
-  origin: this.start,
-  destination: this.end,
-  travelMode: 'DRIVING'
+    origin: this.start,
+    destination: this.end,
+    travelMode: 'DRIVING'
   }, (response, status) => {
   if (status === 'OK') {
     this.directionsDisplay.setDirections(response);
