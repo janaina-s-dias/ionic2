@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
- 
+
 /*
   Generated class for the AdressProvider provider.
 
@@ -29,17 +29,17 @@ export class AdressProvider {
     return { key: c.key, ...c.payload.val() };
     });
   }
-    
+
   save(adress: any) {
     return new Promise((resolve, reject) => {
     if (adress.key) {
       this.db.list(this.PATH)
-      .update(adress.key, { name: adress.name, location: adress.location })
+      .update(adress.key, { name: adress.name, latitude: adress.latitude, longitude: adress.longitude })
       .then(() => resolve())
       .catch((e) => reject(e));
     } else {
       this.db.list(this.PATH)
-      .push({ name: adress.name, location: adress.location })
+      .push({ name: adress.name, latitude: adress.latitude, longitude: adress.longitude })
       .then(() => resolve());
       }
     })
@@ -48,6 +48,6 @@ export class AdressProvider {
     remove(key: string) {
       return this.db.list(this.PATH).remove(key);
     }
-   
+
 
 }

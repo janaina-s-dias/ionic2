@@ -7,15 +7,15 @@
     <div id="floating-panel">
       <b>Origem:</b>
           <select [(ngModel)]="start" id="start" (change)="calculateAndDisplayRoute()">
-              <option *ngFor="let adress of adresses | async" value="{{ adress.location }}">{{ adress.name }}</option>
+              <option *ngFor="let adress of adresses | async" value="{{ adress.latitude +','+  adress.longitude }}">{{ adress.name }}</option>
           </select><br>
       <b>Destino: </b>
       <select [(ngModel)]="end" id="end" (change)="calculateAndDisplayRoute()">
-        <option *ngFor="let adress of adresses | async" value="{{ adress.location }}">{{ adress.name }}</option>
+        <option *ngFor="let adress of adresses | async" value="{{ adress.latitude +','+  adress.longitude }}">{{ adress.name }}</option>
       </select><br>
           <button ion-button small block (click)="newAdress()">
             <ion-icon name="add"></ion-icon>
           </button><br>
     </div>
   <div #map id="map"></div>
- </ion-content> 
+ </ion-content>

@@ -15,11 +15,20 @@
       </div>
     </ion-item>
     <ion-item>
-      <ion-label stacked>Location</ion-label>
-      <ion-input type="location" formControlName="location"></ion-input>
+    <ion-label stacked>Latitude</ion-label>
+      <ion-input type="text" formControlName="latitude"></ion-input>
     </ion-item>
-    <ion-item *ngIf="!form.controls.location.valid && (form.controls.location.dirty || form.controls.location.touched)" color="danger">
-      <div [hidden]="!form.controls.location.errors.required">
+    <ion-item *ngIf="!form.controls.latitude.valid && (form.controls.latitude.dirty || form.controls.latitude.touched)" color="danger">
+      <div [hidden]="!form.controls.latitude.errors.required">
+      O campo é obrigatório
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Longitude</ion-label>
+      <ion-input type="text" formControlName="longitude"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="!form.controls.longitude.valid && (form.controls.longitude.dirty || form.controls.longitude.touched)" color="danger">
+      <div [hidden]="!form.controls.longitude.errors.required">
       O campo é obrigatório
       </div>
     </ion-item>

@@ -19,7 +19,7 @@ constructor
     public navCtrl: NavController, public navParams: NavParams,
     public formBuilder: FormBuilder, private provider: AdressProvider,
     private toast: ToastController
-) 
+)
 
 {
 
@@ -51,10 +51,13 @@ public setupPageTitle() {
 
 
 createForm() {
+
   this.form = this.formBuilder.group({
   key: [this.adress.key],
   name: [this.adress.name, Validators.required],
-  location: [this.adress.location, Validators.required]
+  latitude: [this.adress.latitude, Validators.required],
+  longitude: [this.adress.longitude, Validators.required]
+
 });
 }
 
